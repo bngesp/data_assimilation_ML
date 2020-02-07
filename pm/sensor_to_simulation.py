@@ -40,27 +40,24 @@ def uploaddingFile(filename):
     return df["temperature"].iloc[::-1]
 
 
-def sendToGama(data, data2,data3,data4, index):
+def sendToGama(data, index):
     payload = "datawithallinfo="+data
-    payload2 = "datawithallinfo="+data2
-    payload3 = "datawithallinfo="+data3
-    payload4 = "datawithallinfo="+data4
+    # payload2 = "datawithallinfo="+data2
+    # payload3 = "datawithallinfo="+data3
+    # payload4 = "datawithallinfo="+data4
     print("pushing i="+data+" to Gama reste=>"+index)
     client.publish("temperature", payload, 0, False)
     # client.publish("temperature2", payload2, 0, False)
     # client.publish("temperature3", payload3, 0, False)
-    client.publish("temperature4", payload4, 0, False)
+    # client.publish("temperature4", payload4, 0, False)
     time.sleep(1)
 
-def run(filename, filename1,filename2,filename3 ):
+def run(filename ):
     data = uploaddingFile(filename)
-    data2 = uploaddingFile(filename1)
-    data3 = uploaddingFile(filename2)
-    data4 = uploaddingFile(filename3)
-    total = 15
+    total = 795
     index = 1
     for i in data:
-        sendToGama(str(i),str(data2[index]), str(data3[index]), str(data4[index]),str(total-index))
+        sendToGama(str(i),str(total-index))
         index = index+1
     print("finish")
 
@@ -69,8 +66,5 @@ def run(filename, filename1,filename2,filename3 ):
 #%%
 
 #run("/Users/admin/Documents/ML/my_data")
-run("/Users/admin/Documents/ML/Thesis/data/temp_data/2019-08-30/1", 
-    "/Users/admin/Documents/ML/Thesis/data/temp_data/2019-08-30/2", 
-"/Users/admin/Documents/ML/Thesis/data/temp_data/2019-08-30/3", 
-"/Users/admin/Documents/ML/Thesis/data/temp_data/2019-08-30/4")
+run("/Users/admin/Documents/ML/Thesis/data/temp_data/my_data")
 

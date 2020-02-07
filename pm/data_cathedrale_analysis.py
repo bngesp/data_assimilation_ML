@@ -20,23 +20,13 @@ df['contents'].describe
 
 # %%
 el = df['contents'].str.split(":", expand = True)
-# el2 = el[1].str.split(":", n = 1, expand = True)
-# el3 = el2[1].str.split(":", n = 1, expand = True)
-# el4 = el3[1].str.split(":", n = 1, expand = True)
-# el5 = el4[1].str.split(":", n = 1, expand = True)
-# el6 = el5[1].str.split(":", n = 1, expand = True)
-# el7 = el6[1].str.split(":", n = 1, expand = True)
-# el8 = el7[1].str.split(":", n = 1, expand = True)
-# el9 = el8[1].str.split(":", n = 1, expand = True)
+
 df['data1'] = el[0].astype(float)
 df['data2'] = el[1].astype(float)
 df['data3'] = el[2].astype(float)
 df['data4'] = el[3].astype(float)
 df['data5'] = el[4].astype(float)
-# df['data6'] = el[5]
-# df['data7'] = el[6]
-# df['data8'] = el[7]
-# df['data9'] = el[8]
+
 
 el
 # %%
